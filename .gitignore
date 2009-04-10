@@ -1,0 +1,7 @@
+*.dsc
+*.pdf
+*.log
+*.aux
+*.out
+report.prv/**
+_region_*

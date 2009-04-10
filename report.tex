@@ -1,0 +1,239 @@
+\documentclass[
+a4paper,% paper dimensions
+10pt,% font size
+titlepage,% print title on a single page
+%twocolumn,% text in two columns on a single page
+twoside% two sided printing (page numbers on outer edge)
+]{article}
+
+
+% \pagestyle{myheadings}
+
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage{amscd}
+% \usepackage[polish]{babel}
+% \usepackage{polski}
+\usepackage[utf8]{inputenc} 
+\usepackage[pdftex]{hyperref}
+% \usepackage{graphicx} 
+% \usepackage{titlesec}
+% \usepackage{afterpage}
+% \usepackage[section]{placeins}
+
+
+\begin{document}
+
+The energy functional for a given mapping is
+\begin{gather}\label{eq:baseE}
+  E(f)=\frac{1}{2}V(S^{k-1})\int_0^{\pi}\bigg(f'^2+(k-1)\frac{\sin^2f}{\sin^2\psi}\bigg)\sin^{k-1}\psi d\psi.
+\end{gather}
+For $f$ to extremalize the energy it is required that
+\begin{gather}\label{eq:el}
+  \frac{1}{\sin^{k-1}\psi}\big(\sin^{k-1}\psi f'\big)'-\frac{k-1}{2}\frac{\sin 2 f}{\sin^2\psi}=0.
+\end{gather}
+Stability of such mapping can be studied by investigating the energy
+of linear perturbations of solutions of \eqref{eq:el}. The energy of
+such perturbation is given by
+\begin{gather}\label{eq:infE}
+  \epsilon(h)=\delta^2E(f)(h,h)=\frac{1}{2}V(S^{k-1})\int_0^{\pi}\bigg(h'^2+(k-1)\frac{\cos 2f}{\sin^2\psi }h^2\bigg)\sin^{k-1}\psi d\psi.
+\end{gather}
+We set the domain of $\epsilon$ to be the set of twice differentiable
+functions, square integrable w.r.t. the weight
+$w(\psi)=\sin^{k-1}\psi$, which will further be denoted as $H_k$. If
+we consider the lowest power of the Laurent series expansion of $h$ to
+be $\alpha$, the square integrability of its derivative requires
+$\alpha>\alpha_{\text{crit}}$, where $\alpha_{\text{crit}}=1-k/2$. On
+the other hand, the symmetry $\psi\rightarrow\pi-\psi$ of
+\eqref{eq:baseE} implies the symmetries $h\rightarrow h$ and
+$h\rightarrow-h$, so the domain of $H_k$ can be split into the
+symmetric and antisymmetric parts without the loss of generality, such
+parts will be denoted as $H^+_k$ and $H^-_k$ respectively, which in
+turn lets us restrict the interval $[0,\pi]$ to its half:
+$[0,\pi/2]$. Moreover it is easy to show by a direct calculation, that
+\begin{gather}
+  \epsilon(h)=-(h,Lh)
+\end{gather}
+with
+\begin{gather}
+  (f,g)=\frac{1}{2}V(S^{k-1})\int_0^\pi f(\psi) g(\psi) \sin^{k-1}\psi d\psi\\
+  Lh=\frac{1}{\sin^{k-1}\psi}\big(h'\sin^{k-1}\psi\big)'-(k-1)\frac{\cos 2 f}{\sin^2\psi}h\\
+  (g,Lf)-(Lg,f)=0
+\end{gather}
+and the question of stability is brought to the eigenvalue problem for
+self-adjoint operator $L$.\\
+
+The mapping of our interest is $f(\psi)=\frac{\pi}{2}$, the eigenvalue
+problem states that
+\begin{gather}\label{eq:problem}
+  (L-\lambda)h=h''+(k-1)\cot(\psi)h'+((k-1)\frac{1}{\sin^2\psi}-\lambda)h=0.
+\end{gather}
+The substitution $y=\sin^2\psi$, $g(y)=h(\arcsin(y^{1/2}))$ reveals
+the Fuchsian type equation with three regular singular points at $0$,
+$1$ and $\infty$:
+\begin{gather}
+  4y(y-1)g''+2(y+k(y-1))g'+(\lambda-\frac{k-1}{y})g=0.
+\end{gather}
+
+\begin{gather}
+  {}_2F_1
+\end{gather}
+The general solution of the latter is of the form
+\begin{gather}
+  g=c_1\phi_1+c_2\phi_2\\
+  \phi_1(y)=y^{\frac{-4\alpha-k+2}{4}}{}_2F_1 (-\alpha-\beta+\frac{1}{4},-\alpha+\beta+\frac{1}{4};1-2\alpha;y)\\
+  \phi_2(y)=y^{\frac{+4\alpha-k+2}{4}}{}_2F_1 (\alpha-\beta+\frac{1}{4},\alpha+\beta+\frac{1}{4};1+2\alpha;y)\label{eq:sol}
+\end{gather}
+with
+\begin{gather}
+  \alpha=\frac{1}{4}\sqrt{k^2-8 k+8}\\
+  \beta=\beta(\lambda)=\frac{1}{4}\sqrt{(k-1)^2-4\lambda}.
+\end{gather}
+First and foremost we are interested in the behavior at
+$\psi\rightarrow0$. The series expansion reveals that
+\begin{gather}
+  \phi_1(y)=y^{\frac{-4\alpha-k+2}{4}}(1+O(y))\\
+  \phi_2(y)=y^{\frac{4\alpha-k+2}{4}}(1+O(y))
+\end{gather}
+First, one should notice that, for $\Im(\alpha)\ne0$, $y^\alpha$ is
+not integrable on $[0,1]$. This introduces the condition
+$k>2(2+\sqrt{2})$ or $k<2(2-\sqrt{2})$. The latter case shall not be
+considered as we assume $k\ge3$. Moreover, for $k>2(2+\sqrt{2})$ we
+have $\frac{-\alpha-k+2}{4}<\frac{\alpha_{\text{crit}}}{2}$, so the
+first solution will be discarded. At $y\rightarrow1$ the values of $h$
+and $h'$ are
+
+\begin{gather}
+  h=g\sim\frac{\Gamma(1+2\alpha)}{\Gamma(\alpha-\beta)\Gamma(\alpha+\beta)}+O(1-y),\\
+  h'=2y^{1/2}(1-y)^{1/2}g'\sim\frac{\Gamma(2+2\alpha)}{\Gamma(\alpha-\beta+1)\Gamma(\alpha+\beta+1)}+O(1-y).
+\end{gather}
+The antisymmetry of $h$, requires that $h(\pi/2)=g(1)=0$, and this is true
+iff $\alpha-\beta=-m$ or $\alpha+\beta=-m$ for
+$m\in\mathbb{N}_0$. Both conditions give rise to the same following
+quantization of $\lambda^-$
+\begin{gather}
+  \lambda^-_m=2\alpha (-4 m-3)+\frac{1}{2}(3 k-8
+  m^2-12 m-8).
+\end{gather}
+Analogously for symmetric solution
+\begin{gather}
+  \lambda^+_m=2\alpha(-4 m-1)+\frac{1}{2} (3 k-8
+  m^2-4 m-4).
+\end{gather}
+With $\lambda_n$ defined as
+\begin{gather}
+  \lambda_n=\frac{1}{2}\big(-4\alpha(2n+1)+
+  (3k-2n^2-2n-4)\big)
+\end{gather}
+for $n\in\mathbb{N}_0$, those two families of eigenvalues can be combined
+using the relation
+\begin{gather}
+  \lambda_{2m}=\lambda_m^+\\
+  \lambda_{2m+1}=\lambda_m^-
+\end{gather}
+The noticeable fact is, that the only eigenvalues grater than zero are
+for $n=0$ (symmetric) and $n=1$ (antisymmetric), and as
+$k\rightarrow\infty$ one has $\lambda_0= k + O(1/k)\rightarrow\infty$
+and $\lambda_1\rightarrow 2$. More generally, the asymptotic of
+$\lambda$ w.r.t. $k$ is as follows
+\begin{gather}
+  \lambda_n=(1-n)k+n(3-n)+O(1/k).
+\end{gather}
+Substituting eigenvalues to \eqref{eq:sol} and using the value of
+\begin{gather}
+%   \beta^-_m=3/4+m+\alpha\\
+%   \beta^+_m=1/4+m+\alpha\\
+  \beta_n=\beta(\lambda_n)=\frac{1}{4}(2n+1+4\alpha)
+\end{gather}
+we end up with the complete solution to \eqref{eq:problem}
+\begin{gather}
+%   h^-_m(\psi)=A\sin^{2\alpha+\frac{-k+2}{2}}\psi\sideset{_2^{}}{_1^{}}F(-\frac{1}{2}-m,1+m+2\alpha;1+2\alpha;\sin^2\psi),\\
+%   h^+_m(\psi)=B\sin^{2\alpha+\frac{-k+2}{2}}\psi\sideset{_2^{}}{_1^{}}F(-m,\frac{1}{2}+m+2\alpha;1+2\alpha;\sin^2\psi),\\
+  h_n(\psi)=C_n\sin^{\frac{4\alpha-k+2}{2}}\psi {}_2 F_1 (-\frac{n}{2},\frac{n}{2}+\frac{1+4\alpha}{2};1+2\alpha;\sin^2\psi).
+\end{gather}
+
+
+For $k=7$ the solution turns out to be particularly simple, because the
+factor $(1+4\alpha)/2=1$, and we can use the compactified form of
+hypergeometric function
+\begin{gather}
+%   h^-_m(\psi)=A_m\sin^{-2}\psi \sideset{_2^{}}{_1^{}}F(-\frac{1}{2}-m,\frac{3}{2}+m;\frac{3}{2};\sin^2\psi)
+%   =\frac{\sin((2+2m)\psi)}{(2+2m)\sin^3\psi},\\
+%   h^+_m(\psi)=B_m\sin^{-2}\psi \sideset{_2^{}}{_1^{}}F(-m,1+m;\frac{3}{2};\sin^2\psi)
+%   =\frac{\sin((1+2m)\psi)}{(1+2m)\sin^3\psi}.
+  h_n(\psi)=C_n\sin^{-2}\psi
+  {}_2F_1(-\frac{n}{2},\frac{n}{2}+1;\frac{3}{2};\sin^2\psi)
+  =C_n\frac{\sin((1+n)\psi)}{(1+n)\sin^3\psi}.
+\end{gather}
+
+% which can be compactified to
+
+% \begin{gather}
+%   h_k(\psi)=C_k\frac{\sin(k\psi)}{k\sin^3\psi}
+% \end{gather}
+
+
+\section{Notes}
+\label{sec:Notes}
+
+$\phi_1=\bar{\phi_2}$ for $k<k_\text{crit}$ and $\lambda\in R$ (from
+$\overline{F(a,b;c;y)}=F(\bar{a},\bar{b};\bar{c};\bar{y})$, and the
+symmetry in $a$ and $b$, using the fact, that $\beta$ is purely real
+or purely imaginary), with both, $\phi_1$ and $\phi_2$ integrable. For
+$k>k_\text{crit}$ $\phi_2=\bar{\phi_2}$, and $\phi_1$ is not
+integrable, the most general form of the real solution when
+$k<k_\text{crit}$ is (with $\phi:=\phi_1$, and $a_1$, $a_2$ - real
+parameters)
+\begin{gather}
+  g=a_1(\phi+\bar\phi)+i a_2(\phi-\bar\phi)
+\end{gather}
+For $L$ to be self-adjoint the boundary terms are of the form
+(in $f$,$g$ - functions of $\psi$)
+\begin{gather}
+  (f'g-fg')\sin^{k-1}\psi\big|^\pi_0\sim \bigg(\ln \frac{f}{g}\bigg)'fg\sin^{k-1}\psi\big|_0^\pi
+\end{gather}
+and have to vanish, which in the case of $k<k_\text{crit}$ reduces to
+the requirement, that all eigenfunctions have lineary-dependent
+asymptotics at $0+$ (this can be achieved, because the leading
+asymptotics at $0+$ does not depend on $\lambda$) and, as $a1$ and
+$a2$ are chosen globally, for the whole domain of $g$, the domain of
+self-adjoint operator $L$ is therefore parametrized by the ``phase''
+parameter $\theta\in[0,\pi]$ of $(a_1,a_2)$, which is an element of
+$RP^1\sim^?U(1)$ (which agrees with the von Neuman theorem for
+non-unique self-adjoint extensions), and the behaviour of the solutions
+for fixed $\theta$ are dependent of $\lambda$ only. This means that
+for given $\theta$ we can quantize $\lambda$ using boundary conditions
+as for $k>k_\text{crit}$ (symmetricity/antisymmetricity). This leaves
+us with the family of sets of eigenvalues $\{\lambda_m\}$ parametrized
+by the $\theta$. Conversely, for arbitrary large $\lambda$, there
+exists $\theta$ for which the boundary values are fulfilled (unless,
+$\phi(1)\ne0$). This becomes obvious if one uses the relation for
+$g_\lambda(1)$ and $\theta$:
+\begin{gather}
+  g_\lambda(1)=a_0(\phi_\lambda(1)
+  e^{i\theta}+\overline{\phi_\lambda(1)} e^{-i\theta})=2a_0\Re
+  (\phi_\lambda(1) e^{i\theta})=0
+\end{gather}
+and from continuity of $\phi_\lambda(1)$ in $\lambda$ two situations
+may occur in the limit of $\lambda\rightarrow\infty$. Either, there is
+a limiting value of $\theta_0$ (from which it results in self-adjoint
+bounded from above extensions ), or there is no limiting value of
+$\theta$ in which case $\theta$ is expected to go round the $[0,\pi]$
+interval infinitely many times in which case arbitrary $\theta$ is
+``crossed'' infinitely many times with the value of $\lambda$
+increasing at each round, and we and up with extension unbound from
+top for any $\theta$. The unboundness from below can be shown in the
+same way of reasoning, or using the Sturm-Liouville theorem, but is of
+no particular use.
+\\
+Knowing explicitly how $\phi_\lambda$ depends of $\lambda$, one can
+calculate asymptotic behaviour of $\arg(\phi_\lambda(1))$ as
+$\lambda\rightarrow\infty$. (tu policzylem przy pomocy Mathematici, ze
+$\arg(\phi(1))\rightarrow\log(\lambda)$, wiec sie nie zbiega do zadnej
+wartosci, ale wstrzymam sie ze szczegolami, zanim nie policze tego
+wlasnorecznie).
+
+
+
+
+\end{document}
