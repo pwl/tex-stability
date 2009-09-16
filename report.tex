@@ -10,13 +10,13 @@ twoside% two sided printing (page numbers on outer edge)
 % \pagestyle{myheadings}
 
 \usepackage{amsmath}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{amscd}
 % \usepackage[polish]{babel}
 % \usepackage{polski}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage[pdftex]{hyperref}
-% \usepackage{graphicx} 
+% \usepackage{graphicx}
 % \usepackage{titlesec}
 % \usepackage{afterpage}
 % \usepackage[section]{placeins}
@@ -74,10 +74,6 @@ $1$ and $\infty$:
 \begin{gather}
   4y(y-1)g''+2(y+k(y-1))g'+(\lambda-\frac{k-1}{y})g=0.
 \end{gather}
-
-\begin{gather}
-  {}_2F_1
-\end{gather}
 The general solution of the latter is of the form
 \begin{gather}
   g=c_1\phi_1+c_2\phi_2\\
@@ -102,7 +98,6 @@ considered as we assume $k\ge3$. Moreover, for $k>2(2+\sqrt{2})$ we
 have $\frac{-\alpha-k+2}{4}<\frac{\alpha_{\text{crit}}}{2}$, so the
 first solution will be discarded. At $y\rightarrow1$ the values of $h$
 and $h'$ are
-
 \begin{gather}
   h=g\sim\frac{\Gamma(1+2\alpha)}{\Gamma(\alpha-\beta)\Gamma(\alpha+\beta)}+O(1-y),\\
   h'=2y^{1/2}(1-y)^{1/2}g'\sim\frac{\Gamma(2+2\alpha)}{\Gamma(\alpha-\beta+1)\Gamma(\alpha+\beta+1)}+O(1-y).
@@ -173,7 +168,7 @@ hypergeometric function
 % \end{gather}
 
 
-\section{Notes}
+\section{Stability below $k_{crit}$}
 \label{sec:Notes}
 
 $\phi_1=\bar{\phi_2}$ for $k<k_\text{crit}$ and $\lambda\in R$ (from
@@ -233,7 +228,73 @@ $\arg(\phi(1))\rightarrow\log(\lambda)$, wiec sie nie zbiega do zadnej
 wartosci, ale wstrzymam sie ze szczegolami, zanim nie policze tego
 wlasnorecznie).
 
+\section{Self-similar ansatz}
 
-Commit test.
+
+Equation for gradient flow for the map considered is
+\begin{equation}
+  \label{eq:grad_flow}
+  \partial_t f=f''+(k-1)\cot \psi f'-\frac{k-1}{2}\frac{\sin2f}{\sin^2 \psi})\\
+  f\in [0,\pi]\\
+  \psi\in [0,\pi]
+\end{equation}
+
+
+For $\psi<<1$ we have
+\begin{equation}
+  \partial_t f=f''+(k-1)\frac{1}{\psi} f'-\frac{k-1}{2}\frac{\sin2f}{\psi^2})\\
+  \psi\in [0,\infty]
+\end{equation}
+
+Introducing self similar variables $\xi=\frac{\psi}{\sqrt{T-t}}$ and
+$\tau=-\log(T-t)$, $F(\xi,\tau)$ the above equation becomes
+\begin{equation}
+  \partial_\tau F=F''+((k-1)\frac{1}{\xi}-\frac{\xi}{2}) F'-\frac{k-1}{2}\frac{\sin2F}{\xi^2})
+\end{equation}
+with blowup solutions
+\begin{equation}
+  0=F''+((k-1)\frac{1}{\xi}-\frac{\xi}{2}) F'-\frac{k-1}{2}\frac{\sin2F}{\xi^2}).
+\end{equation}
+The existance of the monotonic solutions to the above equation with
+boundary conditions $F(0)=0$ and $F(\infty)=\pi$ has been prooven by
+A. Gastel. The linearized form of the above equation around the blowup
+solution is
+\begin{equation}
+  \partial_\tau \epsilon=\epsilon''+((k-1)\frac{1}{\xi}-\frac{\xi}{2}) \epsilon'-(k-1)\frac{\cos2F}{\xi^2}\epsilon=L\epsilon
+\end{equation}
+
+By construction, one of the unstable modes is $\xi F'$ (J. Eggers and
+M.A. Fontelos, p.R20).
+
+% \begin{equation}
+%   0=h''-(k-2)\tanh x h'+\frac{k-1}{2}\sin2h
+% \end{equation}
+
+
+% For $y=1/\cosh^2x$ becomes
+% \begin{equation}
+%   \label{eq:grad_flow_y}
+%   \partial_t h=4(1-y)y h''+2(k(1-y)-y)h'+\frac{k-1}{2y}\sin2h,
+% \end{equation}
+% which for $x^2>>1$ (or equivalently $y<<1$) becomes
+% \begin{equation}
+%   \label{eq:grad_flow_y_small}
+%   \partial_t h=4y h''+2k h'+\frac{k-1}{2y}\sin2h,
+% \end{equation}
+% for which the self-similar variables can be introduced by defining
+% \begin{equation}
+%   \label{eq:self_sim_vars}
+%   \begin{split}
+%     \tau&=-\ln(T-t)\\
+%     \xi &=\frac{y}{T-t},
+%   \end{split}
+% \end{equation}
+% then we have
+% \begin{equation}
+%   \label{eq:self_sim_flow}
+%   \partial_\tau h= 4\xi h''+(2k-\xi) h'+\frac{k-1}{2\xi}\sin2h
+% \end{equation}
+
+
 
 \end{document}
